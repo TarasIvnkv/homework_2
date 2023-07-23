@@ -14,6 +14,7 @@ if (userName === null && userSurname === null){
     console.log(fullName);
 }
 
+
 userEmail = prompt(`Enter your email`);
 
 if (userEmail !== null){
@@ -45,4 +46,14 @@ if (userEmail !== null){
 }
 
 
+userAge = prompt(`Enter year of your birth`);
+
+if(userAge !== null){
+    userAge = userAge.replaceAll(` `, ``);
+    today = new Date();
+    year = today.getFullYear();
+    userAge = year - userAge;
+}else{
+    userAge = `Date  : Your date)`;
+}
 
