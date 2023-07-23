@@ -1,16 +1,3 @@
-// userName = prompt(`Enter your name`);
-// userSurname = prompt(`Enter your surname`);
-// userName = userName.trim();
-// userSurname = userSurname.trim();
-// userName = userName[0].toUpperCase() + userName.slice(1).toLowerCase();
-// userSurname = userSurname[0].toUpperCase() + userSurname.slice(1).toLowerCase();
-// fullName = `${userName} ${userSurname}`;
-// console.log(fullName);
-
-
-
-
-
 userName = prompt(`Enter your name`);
 userSurname = prompt(`Enter your surname`);
 
@@ -26,5 +13,36 @@ if (userName === null && userSurname === null){
     fullName = `Name : ${userName}, Surname : ${userSurname}`;
     console.log(fullName);
 }
+
+userEmail = prompt(`Enter your email`);
+
+if (userEmail !== null){
+    userEmail = userEmail.replaceAll(` `, ``).toLowerCase();
+
+    if (!userEmail.includes(`@`)){
+        userEmail = `not valid email <b>${userEmail}</b> (symbol @ not exist)`;
+        console.log(userEmail);
+    }
+
+    if(userEmail.startsWith(`@`) && userEmail.endsWith(`@`)){
+        userEmail = ` not valid email ${userEmail} (symbol @ find in first place, symbol @ find in last place)`;
+        console.log(userEmail);
+    }
+
+    if (userEmail.startsWith(`@`)){
+        userEmail = `not valid email <b>${userEmail}</b> (symbol @ find in first place)`;
+        console.log(userEmail);
+    }
+
+    if (userEmail.endsWith(`@`)) {
+        userEmail = `not valid email <b>${userEmail}</b> (symbol @ find in last place`;
+        console.log(userEmail);
+    }
+
+} else{
+    userEmail = `Email : Your Email)`;
+    console.log(userEmail);
+}
+
 
 
