@@ -1,59 +1,66 @@
 userName = prompt(`Enter your name`);
 userSurname = prompt(`Enter your surname`);
 
-if (userName === null && userSurname === null){
-    userName = `Your name)`;
-    userSurname = `Your surname)`;
-    console.log(`Name : ${userName}, Surname : ${userSurname}`);
+if (userName === null || userName === ``){
+    userName = `Your name😌`;
 }else{
     userName = userName.trim();
-    userSurname = userSurname.trim();
     userName = userName[0].toUpperCase() + userName.slice(1).toLowerCase();
-    userSurname = userSurname[0].toUpperCase() + userSurname.slice(1).toLowerCase();
-    fullName = `Name : ${userName}, Surname : ${userSurname}`;
-    console.log(fullName);
 }
+
+if (userSurname === null || userSurname === ``){
+    userSurname = `Your name😌`;
+}else{
+    userSurname = userSurname.trim();
+    userSurname = userSurname[0].toUpperCase() + userSurname.slice(1).toLowerCase();
+}
+
+fullName = `${userName} ${userSurname}`;
 
 
 userEmail = prompt(`Enter your email`);
 
-if (userEmail !== null){
+if (userEmail !== null || userEmail !== ``){
+    userEmail = `Email not defined`;
+
+} else{
     userEmail = userEmail.replaceAll(` `, ``).toLowerCase();
 
     if (!userEmail.includes(`@`)){
-        userEmail = `not valid email <b>${userEmail}</b> (symbol @ not exist)`;
-        console.log(userEmail);
+        userEmail = `not valid email ${userEmail} (symbol @ not exist)`;
     }
 
     if(userEmail.startsWith(`@`) && userEmail.endsWith(`@`)){
         userEmail = ` not valid email ${userEmail} (symbol @ find in first place, symbol @ find in last place)`;
-        console.log(userEmail);
     }
 
     if (userEmail.startsWith(`@`)){
-        userEmail = `not valid email <b>${userEmail}</b> (symbol @ find in first place)`;
-        console.log(userEmail);
+        userEmail = `not valid email ${userEmail} (symbol @ find in first place)`;
     }
 
     if (userEmail.endsWith(`@`)) {
-        userEmail = `not valid email <b>${userEmail}</b> (symbol @ find in last place`;
-        console.log(userEmail);
+        userEmail = `not valid email ${userEmail} (symbol @ find in last place)`;
     }
-
-} else{
-    userEmail = `Email : Your Email)`;
-    console.log(userEmail);
 }
 
 
 userAge = prompt(`Enter year of your birth`);
 
-if(userAge !== null){
+if(userAge === null || userAge === ``){
+    userAge = `Your age😌`;
+}else{
     userAge = userAge.replaceAll(` `, ``);
     today = new Date();
     year = today.getFullYear();
     userAge = year - userAge;
-}else{
-    userAge = `Date  : Your date)`;
 }
 
+
+document.write(`
+    <h1>Form</h1>
+    <ul>
+        <li>Full name: ${fullName}</li>
+        <li>Email: ${userEmail}</li>
+        <li>Age: ${userAge}</li>
+    </ul>
+`);
